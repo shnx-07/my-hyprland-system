@@ -1,0 +1,71 @@
+/*LEFT SIDE*/
+.bar-left-section {
+    padding-left: 10px;
+}
+
+.bar-action-button {
+    min-width: 34px;
+    min-height: 34px;
+    padding: 0;
+    border-radius: 999px;
+}
+
+.bar-action-button label {
+    font-size: 17px;
+}
+
+.workspace-group {
+    padding: 3px;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.07);
+}
+
+.workspace-item {
+    min-width: 28px;
+    min-height: 28px;
+    padding: 0 7px;
+    border: none;
+    border-radius: 999px;
+    background: transparent;
+    box-shadow: none;
+}
+
+.workspace-item:hover {
+    background-color: rgba(255, 255, 255, 0.10);
+}
+
+.workspace-active {
+    background-color: rgba(255, 255, 255, 0.22);
+    color: white;
+}
+
+.arch-button {
+    font-size: 18px;
+}
+
+.active-app-button {
+    font-size: 16px;
+}
+
+
+
+/*RIGHT SIDE*/
+
+.bar-right-section {
+    padding-right: 10px;
+}
+
+.status-button {
+    min-width: 32px;
+    min-height: 32px;
+    padding: 0;
+    border-radius: 999px;
+}
+
+.status-button label {
+    font-size: 16px;
+}
+
+.power-button {
+    color: #ff5f57;
+}
