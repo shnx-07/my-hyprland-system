@@ -1,0 +1,138 @@
+.notification-center {
+    min-height: 220px;
+    padding: 10px;
+    border-radius: 18px;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.notification-header {
+    min-height: 34px;
+}
+
+.notification-title {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.notification-clear-button {
+    min-height: 28px;
+    padding: 0 10px;
+    border-radius: 999px;
+}
+
+.notification-scroll {
+    border-radius: 14px;
+}
+
+.notification-empty-state {
+    opacity: 0.55;
+    font-size: 13px;
+}
+
+
+/*new chnages*/
+
+.notification-list {
+    padding: 2px;
+}
+
+.notification-card {
+    padding: 10px 12px;
+    border-radius: 14px;
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.notification-card-header {
+    min-height: 24px;
+}
+
+.notification-app-name {
+    font-size: 12px;
+    font-weight: 600;
+    opacity: 0.7;
+}
+
+.notification-time {
+    font-size: 11px;
+    opacity: 0.5;
+}
+
+.notification-dismiss-button {
+    min-width: 24px;
+    min-height: 24px;
+    padding: 0;
+    border-radius: 999px;
+}
+
+.notification-summary {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.notification-body {
+    font-size: 13px;
+    opacity: 0.75;
+}
+
+
+.notification-actions {
+    margin-top: 4px;
+}
+
+.notification-action-button {
+    min-height: 28px;
+    padding: 0 12px;
+    border-radius: 999px;
+    font-size: 12px;
+}
+
+/*Pop ups*/
+
+.notification-popup-window {
+    background-color: transparent;
+}
+
+.notification-popup-card {
+    min-width: 330px;
+    padding: 14px;
+    border-radius: 16px;
+    background-color: rgba(28, 28, 34, 0.96);
+}
+
+.notification-popup-header {
+    min-height: 26px;
+}
+
+.notification-popup-app {
+    font-size: 12px;
+    font-weight: 600;
+    opacity: 0.7;
+}
+
+.notification-popup-summary {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.notification-popup-body {
+    font-size: 13px;
+    opacity: 0.78;
+}
+
+.notification-popup-dismiss {
+    min-width: 26px;
+    min-height: 26px;
+    padding: 0;
+    border-radius: 999px;
+}
+
+.notification-popup-actions {
+    margin-top: 4px;
+}
+
+.notification-popup-action-button {
+    min-height: 28px;
+    padding: 0 12px;
+    border-radius: 999px;
+    font-size: 12px;
+}

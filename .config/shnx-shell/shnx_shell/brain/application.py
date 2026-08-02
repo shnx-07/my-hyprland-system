@@ -10,6 +10,14 @@ from gi.repository import Gdk, Gio, Gtk
 
 from shnx_shell.bar.bar import Bar
 
+from shnx_shell.brain.lifecycle import (
+    shutdown,
+    startup,
+)
+
+from shnx_shell.popups.notification_popup import (
+    NotificationPopup,
+)
 
 class ShnxApplication(Gtk.Application):
     def __init__(self) -> None:
@@ -18,13 +26,26 @@ class ShnxApplication(Gtk.Application):
             flags=Gio.ApplicationFlags.DEFAULT_FLAGS,
         )
 
+        self._bar: Bar | None = None
+        self._notification_popup: NotificationPopup | None = None
+
     def do_startup(self) -> None:
         Gtk.Application.do_startup(self)
         self._load_css()
+        startup()
 
     def do_activate(self) -> None:
-        bar = Bar(self)
-        bar.present()
+        if self._bar is None:
+            self._bar = Bar(self)
+
+        if self._notification_popup is None:
+            self._notification_popup = NotificationPopup(self)
+
+        self._bar.present()
+
+    def do_shutdown(self) -> None:
+        shutdown()
+        Gtk.Application.do_shutdown(self)
 
     def _load_css(self) -> None:
         css_path = (

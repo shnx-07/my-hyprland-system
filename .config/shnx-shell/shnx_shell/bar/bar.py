@@ -9,6 +9,11 @@ gi.require_version("Gtk4LayerShell", "1.0")
 from gi.repository import GLib, Gtk, Gtk4LayerShell
 from shnx_shell.launcher.app_loader import find_app_icon
 from shnx_shell.bar.dynamic.dynamic_island import DynamicIsland
+from shnx_shell.bar.modules.wifi_indicator import WifiIndicator
+from shnx_shell.bar.modules.battery_indicator import BatteryIndicator
+from shnx_shell.bar.modules.bluetooth_indicator import BluetoothIndicator
+from shnx_shell.bar.modules.notification_button import NotificationButton
+from shnx_shell.bar.modules.power_button import PowerButton
 from shnx_shell.services.hyprland import (
     get_active_window_class,
     get_active_workspace,
@@ -55,9 +60,12 @@ class Bar(Gtk.ApplicationWindow):
         self.connect("close-request", self._on_close_request)
 
         root = Gtk.CenterBox()
-
+        #Left side button
         self.workspace_group: Gtk.Box | None = None
         self._workspace_state: tuple[tuple[int, ...], int] | None = None
+
+        #right side button 
+        
 
         left = Gtk.Box(
             orientation=Gtk.Orientation.HORIZONTAL,
@@ -74,11 +82,15 @@ class Bar(Gtk.ApplicationWindow):
             spacing=8,
         )
 
+        #left side
         left.append(self._build_left_section())
         center.append(DynamicIsland())
         center.set_valign(Gtk.Align.CENTER)
         center.set_vexpand(False)
+
+        #right side
         right.append(self._build_right_section())
+
 
         root.set_start_widget(left)
         root.set_center_widget(center)
@@ -283,30 +295,14 @@ class Bar(Gtk.ApplicationWindow):
         section.set_valign(Gtk.Align.CENTER)
         section.add_css_class("bar-right-section")
 
-        battery = Gtk.Button(label="󰁹")
-        battery.add_css_class("status-button")
-        battery.add_css_class("battery-button")
+        
 
-        wifi = Gtk.Button(label="󰖩")
-        wifi.add_css_class("status-button")
-        wifi.add_css_class("wifi-button")
 
-        bluetooth = Gtk.Button(label="󰂯")
-        bluetooth.add_css_class("status-button")
-        bluetooth.add_css_class("bluetooth-button")
-
-        notifications = Gtk.Button(label="󰂚")
-        notifications.add_css_class("status-button")
-        notifications.add_css_class("notification-button")
-
-        power = Gtk.Button(label="󰐥")
-        power.add_css_class("status-button")
-        power.add_css_class("power-button")
-
-        section.append(battery)
-        section.append(wifi)
-        section.append(bluetooth)
-        section.append(notifications)
-        section.append(power)
+        section.append(BatteryIndicator())
+        section.append(WifiIndicator())
+        section.append(BluetoothIndicator())
+        section.append(NotificationButton())
+        section.append(PowerButton())
 
         return section
+
